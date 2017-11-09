@@ -22,7 +22,7 @@ function varargout = Mat_to_Octave(varargin)
 
 % Edit the above text to modify the response to help Mat_to_Octave
 
-% Last Modified by GUIDE v2.5 05-Nov-2017 08:17:09
+% Last Modified by GUIDE v2.5 07-Nov-2017 14:25:31
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -78,4 +78,7 @@ function Gen_Rand_Callback(hObject, eventdata, handles)
 % hObject    handle to Gen_Rand (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-Random=rand(1)*100
+Random=rand(10,10)*100;
+%Random=num2str(Random);
+Random_Table=array2table(Random);
+set(handles.Disp_Rand,'data',Random_Table{:,:},'columnname',Random_Table.Properties.VariableNames)
